@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>DIGITALL: IT-Lösungen für den Mittelstand (Entwurf Startseite)</title>
+<meta name="description" content="Entwurf einer neuen Startseite für DIGITALL. Erstellt von Y Ventures, nicht die offizielle Seite.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Crect width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%23000%27/%3E%3Cg fill=%27none%27 stroke=%27%23fff%27 stroke-width=%272%27%3E%3Ccircle cx=%279%27 cy=%279%27 r=%274%27/%3E%3Ccircle cx=%2717%27 cy=%279%27 r=%274%27/%3E%3Ccircle cx=%279%27 cy=%2717%27 r=%274%27/%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%274%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Geist";src:url("fonts/geist-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --void:#000;
+  --schacht:#0e0e11;
+  --haar:#26262c;
+  --porzellan:#ededed;
+  --stahl:#8f969b;
+  --weiss:#fff;
+  --nebel:#f2f2f2;
+  --stein:#e5e5e5;
+  --tinte:#0a0a0a;
+  --grau:#575757;
+  --hell:#64c6f2;
+  --blau:#1d1fc4;
+  --violett:#a04bff;
+  --sans:"Geist","Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --rand:clamp(20px,5vw,72px);
+  --max:1240px;
+  --nav:84px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:1.0625rem;line-height:1.55;color:var(--tinte);background:var(--weiss);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+svg,canvas{display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--hell);outline-offset:3px;border-radius:6px}
+section[id],span[id]{scroll-margin-top:var(--nav)}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--rand)}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--weiss);color:var(--tinte);padding:10px 16px;border-radius:999px;z-index:300}
+.skip:focus{left:8px}
+section:not(.kunden):not(.kontakt) h2{color:var(--tinte)}
+h2{font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.06;letter-spacing:-.03em;font-weight:500;text-wrap:balance}
+h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
+.lead{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:58ch}
+.mono{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid transparent;font-weight:500;font-size:1rem;letter-spacing:-.01em;text-decoration:none;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-weiss{background:var(--hell);color:#04052a}
+.btn-weiss:hover{background:#9bdcf8}
+.btn-geist{border-color:rgba(255,255,255,.28);color:var(--porzellan)}
+.btn-geist:hover{border-color:var(--weiss);background:rgba(255,255,255,.06)}
+.btn-schwarz{background:var(--blau);color:var(--weiss)}
+.btn-schwarz:hover{background:#1316a0}
+.btn-linie{border-color:#c7c7c7;color:var(--tinte);background:transparent}
+.btn-linie:hover{border-color:var(--blau);color:var(--blau)}
+
+/* Schwebende Navigation */
+.kopf{position:fixed;top:16px;left:0;right:0;z-index:100;padding-inline:16px;pointer-events:none}
+.kopf-pille{pointer-events:auto;max-width:1100px;margin-inline:auto;height:56px;display:flex;align-items:center;gap:8px;padding:0 8px 0 22px;border-radius:999px;background:rgba(18,18,20,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);color:var(--porzellan)}
+.marke{display:flex;align-items:center;gap:9px;font-weight:600;font-size:1.12rem;letter-spacing:.06em;text-decoration:none;margin-right:auto}
+.marke svg{width:22px;height:22px}
+.kopf nav ul{display:flex;gap:2px}
+.kopf nav a{display:block;padding:9px 14px;border-radius:999px;text-decoration:none;font-size:.93rem;color:#cfcfd2;transition:background-color .2s,color .2s}
+.kopf nav a:hover{background:rgba(255,255,255,.09);color:var(--weiss)}
+.kopf .btn{min-height:40px;padding:0 18px;font-size:.93rem}
+.menue-knopf{display:none;width:40px;height:40px;border:0;border-radius:999px;background:rgba(255,255,255,.08);padding:11px}
+.menue-knopf span{display:block;height:1.5px;background:currentColor;margin:4px 0}
+
+/* Hero */
+.hero-bahn{position:relative;height:340svh;background:#02020c}
+.hero{position:sticky;top:0;height:100svh;overflow:hidden;color:var(--porzellan);background:radial-gradient(60% 55% at 74% 44%,rgba(29,31,196,.55),transparent 70%),radial-gradient(45% 45% at 96% 88%,rgba(160,75,255,.28),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(100,198,242,.12),transparent 70%),#02020c}
+#szene{position:absolute;inset:0;width:100%;height:100%}
+.hero-innen{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:var(--nav);padding-bottom:84px}
+.hero-text{max-width:min(660px,56%);will-change:opacity,transform}
+.hero h1{font-size:clamp(2.3rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:500;text-wrap:balance;color:var(--weiss)}
+.hero h1 span{display:block;color:var(--hell)}
+.hero .lead{margin-top:24px;color:#b4b9c2;max-width:50ch}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.ebenen{position:absolute;left:max(var(--rand),calc((100vw - var(--max))/2 + var(--rand)));top:50%;width:min(440px,44%);transform:translateY(-50%);opacity:0;will-change:opacity}
+.ebenen>p{color:var(--stahl);margin-bottom:22px}
+.ebenen li{display:grid;grid-template-columns:44px 1fr;gap:4px 8px;padding:20px 0;border-top:1px solid var(--haar);opacity:.32;transition:opacity .45s}
+.ebenen li:last-child{border-bottom:1px solid var(--haar)}
+.ebenen li.an{opacity:1;border-top-color:var(--hell)}
+.ebenen li .mono{color:var(--hell);padding-top:7px}
+.ebenen h3{font-size:clamp(1.4rem,2.2vw,1.9rem);color:var(--weiss)}
+.ebenen li p{grid-column:2;color:#b4b9c2;max-width:36ch}
+.hero-fuss{position:absolute;left:0;right:0;bottom:28px;border-top:1px solid var(--haar)}
+.hero-fuss .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 32px;min-height:64px;color:var(--stahl)}
+.hero-fuss b{font-weight:500;font-size:1.05rem;color:var(--porzellan);letter-spacing:-.01em}
+.hero-fuss .weiter{margin-left:auto;display:flex;align-items:center;gap:10px}
+.hero-fuss .weiter i{width:28px;height:28px;border:1px solid #55585e;border-radius:8px;display:grid;place-items:center}
+.hero-fuss .weiter i::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--porzellan);border-bottom:1.5px solid var(--porzellan);transform:translateY(-2px) rotate(45deg)}
+.rein{opacity:0;transform:translateY(16px);animation:rein .9s cubic-bezier(.2,.7,.2,1) forwards}
+.rein.v2{animation-delay:.14s}.rein.v3{animation-delay:.28s}
+@keyframes rein{to{opacity:1;transform:none}}
+
+/* Einstiegsfragen */
+.fragen{padding-block:clamp(72px,10vw,136px)}
+.fragen-raster{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.fragen .lead{margin-top:18px;color:var(--grau)}
+.wahl{background:var(--nebel);border-radius:24px;padding:clamp(22px,3.4vw,44px);min-height:470px;display:flex;flex-direction:column}
+.wahl-kopf{display:flex;align-items:center;gap:16px;color:var(--blau)}
+.wahl-balken{flex:1;height:2px;background:var(--stein);border-radius:2px;overflow:hidden}
+.wahl-balken i{display:block;height:100%;width:0;background:var(--blau);transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.wahl-buehne{flex:1;display:flex;flex-direction:column;margin-top:26px}
+.wahl-buehne.wechsel{animation:wechsel .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes wechsel{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.wahl h3{font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.03em;outline:0}
+.wahl-liste{margin-top:22px;display:grid;gap:8px}
+.wahl-liste.zwei{grid-template-columns:1fr 1fr}
+.wahl-liste button{width:100%;text-align:left;background:var(--weiss);border:1px solid transparent;border-radius:16px;padding:16px 20px;font-size:1.02rem;line-height:1.3;transition:border-color .18s,transform .18s}
+.wahl-liste button:hover{border-color:var(--blau);color:var(--blau)}
+.wahl-liste button:active{transform:scale(.99)}
+.wahl-liste small{display:block;color:var(--grau);font-size:.9rem;margin-top:3px}
+.wahl-fuss{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.wahl-fuss button{border:0;background:none;padding:8px 0;color:var(--grau);text-decoration:underline;text-underline-offset:4px}
+.wahl-fuss button:hover{color:#000}
+.wahl-fuss button[hidden]{display:none}
+.ergebnis .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.ergebnis .chips span{background:var(--weiss);border-radius:999px;padding:6px 14px;font-size:.92rem}
+.ergebnis .chips span:first-child{background:var(--blau);color:var(--weiss)}
+.ergebnis p.text{margin-top:18px;color:var(--grau);max-width:52ch}
+.ergebnis .hero-knoepfe{margin-top:26px}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(56px,8vw,104px);border-top:1px solid var(--stein);padding-top:32px}
+.zahl b{color:var(--blau);display:block;font-size:clamp(2.6rem,6vw,5rem);line-height:1;font-weight:400;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.zahl span{display:block;margin-top:10px;color:var(--grau)}
+
+/* Buch */
+.buch-sek{position:relative;background:var(--nebel)}
+.buch-fest{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:22px;padding-top:var(--nav);padding-bottom:28px;overflow:hidden}
+.buch-fest>.wrap{width:100%}
+.buch-kopf{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px}
+.buch-kopf p{color:var(--grau);max-width:40ch}
+.buch{position:relative;width:min(1100px,100%);height:min(58svh,500px);margin-inline:auto;perspective:2400px}
+.seite-l,.seite-r,.blatt{position:absolute;top:0;height:100%;width:50%}
+.seite-l{left:0}
+.seite-r,.blatt{left:50%}
+.blatt{transform-origin:left center;transform-style:preserve-3d;will-change:transform}
+.vorn,.hinten{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.hinten{transform:rotateY(180deg)}
+.papier{background:var(--weiss);padding:clamp(22px,3.2vw,44px);display:flex;flex-direction:column;border-radius:0 20px 20px 0;border-left:1px solid var(--stein)}
+.papier h3{font-size:clamp(1.5rem,2.5vw,2.2rem);letter-spacing:-.03em}
+.papier .frage{display:none;color:var(--grau);margin-bottom:12px}
+.papier p.text{margin-top:14px;color:var(--grau);max-width:40ch}
+.papier ul{margin-top:18px;border-top:1px solid var(--stein)}
+.papier li{padding:10px 0 10px 18px;border-bottom:1px solid var(--stein);position:relative}
+.papier li::before{content:"";position:absolute;left:0;top:1.15em;width:8px;height:8px;border-radius:50%;background:var(--hell)}
+.papier .fuss{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:16px;color:var(--grau)}
+.papier .fuss a{color:var(--blau);font-weight:500;font-size:.95rem;text-underline-offset:4px}
+.tafel{background:linear-gradient(160deg,#2326e0 0%,var(--blau) 45%,#0b0c5e 100%);color:var(--weiss);padding:clamp(22px,3.2vw,44px);display:flex;flex-direction:column;justify-content:space-between;border-radius:20px 0 0 20px;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(160deg,#2326e0 0%,var(--blau) 45%,#0b0c5e 100%);background-size:32px 32px,32px 32px,100% 100%}
+.tafel svg{width:clamp(72px,9vw,116px);height:auto;stroke:var(--hell);fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.tafel p{font-size:clamp(1.3rem,2.3vw,2rem);line-height:1.14;font-weight:500;letter-spacing:-.03em;text-wrap:balance}
+.schatten{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.buch-steuer{display:flex;align-items:center;justify-content:center;gap:14px}
+.buch-steuer button{min-height:44px;padding:0 20px;border-radius:999px;border:1px solid #c7c7c7;background:transparent;font-weight:500;font-size:.95rem;transition:border-color .18s,opacity .18s}
+.buch-steuer button:hover:not(:disabled){border-color:var(--blau);color:var(--blau)}
+.buch-steuer button:disabled{opacity:.35;cursor:default}
+.buch-steuer output{min-width:26ch;text-align:center;color:var(--grau)}
+
+/* Kunden */
+.kunden{background:radial-gradient(50% 60% at 10% 0%,rgba(29,31,196,.45),transparent 70%),#02020c;color:var(--porzellan);padding-block:clamp(72px,10vw,136px);overflow:hidden}
+.kunden h2{color:var(--weiss)}
+.kunden .lead{margin-top:16px;color:var(--stahl)}
+.band{margin-top:56px;display:flex;gap:64px;width:max-content;animation:lauf 44s linear infinite}
+.band:hover{animation-play-state:paused}
+.band span{font-size:clamp(2rem,4.6vw,4rem);font-weight:400;letter-spacing:-.04em;white-space:nowrap;color:#5d6066}
+.band span:nth-child(3n+1){color:var(--weiss)}
+.band span:nth-child(3n+2){color:var(--hell)}
+@keyframes lauf{to{transform:translateX(-50%)}}
+.stimmen{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stimme{background:var(--schacht);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px;min-height:210px}
+.stimme .platz{color:var(--stahl);font-size:.95rem}
+.stimme footer{margin-top:auto;border-top:1px solid var(--hell);padding-top:16px}
+.stimme b{display:block;font-weight:500;color:var(--weiss)}
+.stimme small{color:var(--stahl);font-size:.9rem}
+
+/* Branchen und Praxis */
+.branchen{padding-block:clamp(72px,10vw,136px)}
+.branchen-raster{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.branchen ul{border-top:1px solid var(--stein)}
+.branchen li a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 4px;border-bottom:1px solid var(--stein);text-decoration:none;font-size:1.15rem;letter-spacing:-.01em;transition:padding .25s,background-color .25s}
+.branchen li a .mono{color:var(--blau)}
+.branchen li a:hover{padding-left:16px;background:var(--nebel);color:var(--blau)}
+.faelle{background:var(--nebel);padding-block:clamp(72px,10vw,136px)}
+.faelle-raster{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fall{background:var(--weiss);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px;text-decoration:none;min-height:300px;transition:background-color .25s,color .25s}
+.fall .mono{color:var(--blau)}
+.fall p{color:var(--grau);font-size:.98rem}
+.fall em{margin-top:auto;font-style:normal;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.fall:hover{background:var(--blau);color:var(--weiss)}
+.fall:hover p,.fall:hover .mono{color:#cfd3ff}
+
+/* Kontakt */
+.kontakt{position:relative;background:radial-gradient(55% 70% at 88% 8%,rgba(160,75,255,.55),transparent 70%),radial-gradient(60% 80% at 0% 100%,rgba(100,198,242,.25),transparent 70%),linear-gradient(180deg,var(--blau) 0%,#0b0c5e 78%,#02020c 100%);color:var(--porzellan);padding-block:clamp(80px,11vw,152px) 0}
+.kontakt h2{font-size:clamp(2.3rem,5.4vw,4.6rem);color:var(--weiss);max-width:16ch}
+.kontakt .lead{margin-top:20px;color:#dfe2ff}
+.auswahl{margin-top:24px;display:inline-flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:12px 18px;border:1px solid var(--haar);border-radius:16px;background:rgba(255,255,255,.04)}
+.auswahl[hidden]{display:none}
+.auswahl .mono{color:var(--hell)}
+.orte{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.2)}
+.orte>div{padding:28px 20px 36px 0}
+.orte>div+div{padding-left:20px;border-left:1px solid var(--haar)}
+.orte .mono{display:block;color:var(--hell);margin-bottom:12px}
+.orte address{font-style:normal;color:#b4b9c2;font-size:.97rem}
+.orte a{color:var(--weiss);text-underline-offset:4px}
+.fusszeile{background:#02020c;color:var(--stahl);font-size:.9rem;padding-block:24px 56px;border-top:1px solid var(--haar)}
+.fusszeile .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.fusszeile ul{display:flex;flex-wrap:wrap;gap:8px 22px}
+.hinweis{position:fixed;left:0;right:0;bottom:0;z-index:150;height:28px;display:grid;place-items:center;background:rgba(18,18,20,.86);color:#cfcfd2;border-top:1px solid rgba(255,255,255,.14);font-size:.74rem;line-height:1;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+
+@media (max-width:900px){
+  :root{--nav:76px}
+  .kopf{top:10px;padding-inline:10px}
+  .kopf-pille{height:52px;padding-left:18px}
+  .kopf nav{display:none;position:absolute;top:60px;left:10px;right:10px;background:rgba(18,18,20,.96);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:8px;pointer-events:auto}
+  .kopf nav.offen{display:block}
+  .kopf nav ul{flex-direction:column}
+  .kopf nav a{padding:14px 16px;font-size:1.05rem}
+  .menue-knopf{display:block}
+  .kopf .btn{display:none}
+  .hero-innen{justify-content:flex-start;padding-top:calc(var(--nav) + 18px)}
+  .hero-text{max-width:none}
+  .hero .lead{margin-top:16px}
+  .hero-knoepfe{margin-top:22px}
+  .hero-knoepfe .btn{flex:1 1 100%}
+  .ebenen{top:calc(var(--nav) + 10px);left:var(--rand);right:var(--rand);transform:none;width:auto}
+  .ebenen>p{display:none}
+  .ebenen li{padding:12px 0}
+  .ebenen li p{font-size:.95rem}
+  .hero-fuss .weiter{display:none}
+  .hero-fuss .wrap{min-height:52px;gap:6px 14px;flex-wrap:nowrap}
+  .hero-fuss b{font-size:.88rem}
+  .hero-fuss .mono{font-size:.66rem;letter-spacing:.04em;white-space:nowrap}
+  .fragen-raster,.branchen-raster{grid-template-columns:1fr}
+  .wahl-liste.zwei{grid-template-columns:1fr}
+  .wahl{min-height:0}
+  .stimmen,.faelle-raster{grid-template-columns:1fr}
+  .fall{min-height:0}
+  .orte{grid-template-columns:repeat(2,1fr)}
+  .orte>div:nth-child(3){padding-left:0;border-left:0}
+  .orte>div:nth-child(n+3){border-top:1px solid var(--haar)}
+  .seite-l,.blatt .hinten{display:none}
+  .seite-r,.blatt{left:0;width:100%}
+  .papier{border-radius:20px;border-left:0}
+  .papier .frage{display:block}
+  .buch{height:min(60svh,520px)}
+  .buch-kopf p{display:none}
+  .buch-fest{padding-bottom:36px}
+  .buch-steuer{gap:10px}
+  .buch-steuer output{min-width:0}
+  .buch-steuer .lang{display:none}
+  .hinweis{font-size:.7rem}
+}
+@media (max-width:480px){
+  .zahlen{gap:12px}
+  .orte{grid-template-columns:1fr}
+  .orte>div+div{padding-left:0;border-left:0;border-top:1px solid var(--haar)}
+}
+/* Ohne Bewegung oder ohne 3D: alles steht still und untereinander */
+.still .hero-bahn{height:auto}
+.still .hero{position:relative;height:auto;min-height:100svh}
+.still .hero-innen{height:auto;min-height:100svh}
+.still .ebenen{position:static;transform:none;opacity:1;width:auto;max-width:560px;margin:0 var(--rand);padding-bottom:120px}
+.still .ebenen>p{display:block}
+.still .ebenen li{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rein{animation:none;opacity:1;transform:none}
+  .wahl-buehne.wechsel{animation:none}
+  .band{animation:none;flex-wrap:wrap;width:auto;gap:8px 40px;padding-inline:var(--rand)}
+  .buch-sek{height:auto !important}
+  .buch-fest{position:static;height:auto;padding-block:calc(var(--nav) + 24px) 64px;overflow:visible}
+  .buch{height:auto;perspective:none;display:grid;gap:16px}
+  .seite-l,.hinten,.buch-steuer,.schatten{display:none}
+  .seite-r,.blatt{position:static;width:100%;transform:none !important}
+  .vorn{position:static}
+  .papier{border-radius:20px;border-left:0}
+  .papier .frage{display:block}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopf">
+  <div class="kopf-pille">
+    <a class="marke" href="#top" aria-label="DIGITALL Startseite">
+      DIGITALL
+      <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><circle cx="18" cy="8" r="5.5"/><circle cx="8" cy="18" r="5.5"/><circle cx="18" cy="18" r="5.5"/></svg>
+    </a>
+    <nav id="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#vorgehen">So arbeiten wir</a></li>
+        <li><a href="#einstieg">Ihr Einstieg</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#kunden">Kunden</a></li>
+        <li><a href="#branchen">Branchen</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-weiss" href="#kontakt">Gespräch vereinbaren</a>
+    <button class="menue-knopf" id="menueKnopf" aria-expanded="false" aria-controls="hauptnav" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="inhalt">
+<div class="hero-bahn" id="top">
+  <span id="vorgehen" style="position:absolute;top:44%"></span>
+  <section class="hero" aria-label="Einstieg">
+    <canvas id="szene" aria-hidden="true"></canvas>
+    <div class="wrap hero-innen">
+      <div class="hero-text" id="heroText">
+        <h1 class="rein">IT-Lösungen für den Mittelstand. <span>Beraten, gebaut und betrieben von einem Partner.</span></h1>
+        <p class="lead rein v2">DIGITALL führt Microsoft, Salesforce und ServiceNow in mittelständischen Unternehmen in Deutschland, Österreich und der Schweiz ein, entwickelt individuelle Software und bleibt für das Ergebnis verantwortlich.</p>
+        <div class="hero-knoepfe rein v3">
+          <a class="btn btn-weiss" href="#kontakt">Gespräch mit einem Experten vereinbaren</a>
+          <a class="btn btn-geist" href="#einstieg">In 3 Fragen zum passenden Einstieg</a>
+        </div>
+      </div>
+    </div>
+    <div class="ebenen" id="ebenen">
+      <p>Viele IT-Projekte scheitern an der Übergabe: Einer berät, ein anderer baut, ein dritter soll es am Laufen halten. Bei DIGITALL bleibt die Verantwortung an einer Stelle.</p>
+      <ol>
+        <li><span class="mono">01</span><h3>Beraten</h3><p>Wir klären mit Ihnen, was Ihr Geschäft braucht, und wählen die Plattform, die dazu passt.</p></li>
+        <li><span class="mono">02</span><h3>Bauen</h3><p>Wir führen die Lösung ein und passen sie an Ihre Abläufe an.</p></li>
+        <li><span class="mono">03</span><h3>Betreiben</h3><p>Wir halten sie nach dem Start am Laufen und entwickeln sie mit Ihnen weiter.</p></li>
+      </ol>
+    </div>
+    <div class="hero-fuss">
+      <div class="wrap"><span class="mono">Partner von</span><b>Microsoft</b><b>Salesforce</b><b>ServiceNow</b><span class="weiter mono">Weiterscrollen <i aria-hidden="true"></i></span></div>
+    </div>
+  </section>
+</div>
+
+<section class="fragen" id="einstieg">
+  <div class="wrap">
+    <div class="fragen-raster">
+      <div>
+        <h2>In drei Fragen zum passenden Einstieg</h2>
+        <p class="lead">Sie müssen unsere Fachbegriffe nicht kennen. Sagen Sie uns, was Sie vorhaben, und Sie sehen sofort, womit wir anfangen würden.</p>
+      </div>
+      <div class="wahl" id="wahl" aria-live="polite">
+        <div class="wahl-kopf"><span class="mono" id="wahlStand"></span><div class="wahl-balken"><i id="wahlBalken"></i></div></div>
+        <div class="wahl-buehne" id="wahlBuehne"></div>
+        <div class="wahl-fuss"><button type="button" id="wahlZurueck" hidden>Eine Frage zurück</button><span></span></div>
+      </div>
+    </div>
+    <div class="zahlen" id="zahlen">
+      <div class="zahl"><b data-ziel="6500">6.500+</b><span>Projekte</span></div>
+      <div class="zahl"><b data-ziel="25">25+</b><span>Jahre Erfahrung</span></div>
+      <div class="zahl"><b data-ziel="1000">1.000+</b><span>Kunden</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="buch-sek" id="leistungen" aria-labelledby="buchTitel">
+  <div class="buch-fest">
+    <div class="wrap buch-kopf">
+      <h2 id="buchTitel">Was DIGITALL für Sie übernimmt</h2>
+      <p>Sechs Felder. Scrollen Sie weiter oder blättern Sie mit den Knöpfen.</p>
+    </div>
+    <div class="wrap">
+      <div class="buch" id="buch">
+        <div class="seite-l tafel" id="tafel0"></div>
+        <div class="seite-r papier">
+          <h3>Nicht sicher, welches Feld zu Ihnen passt?</h3>
+          <p class="text">Beschreiben Sie uns in einem kurzen Gespräch, wo es hakt. Wir sagen Ihnen, womit wir anfangen würden.</p>
+          <div class="fuss"><a href="#kontakt">Gespräch vereinbaren</a><span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="buch-steuer">
+      <button type="button" id="zurueck">Zurück</button>
+      <output id="seitenzahl" class="mono"></output>
+      <button type="button" id="weiter">Weiterblättern</button>
+    </div>
+  </div>
+</section>
+
+<section class="kunden" id="kunden">
+  <div class="wrap">
+    <h2>Unternehmen, die mit DIGITALL arbeiten</h2>
+    <p class="lead">Vom Industriekonzern bis zum Wohlfahrtsverband.</p>
+  </div>
+  <div class="band" id="band" aria-label="Kunden: Continental, Diakonie Baden, Vitra, Semperit, Kelvion, Parloa, Swisscard, Engelhard"></div>
+  <div class="wrap">
+    <div class="stimmen">
+      <figure class="stimme"><p class="platz">Platz für das Originalzitat von der bestehenden Seite.</p><footer><b>Christoph Zinkel</b><small>Group Head of Commercial Excellence, Semperit AG</small></footer></figure>
+      <figure class="stimme"><p class="platz">Platz für das Originalzitat von der bestehenden Seite.</p><footer><b>Dennis Ahler</b><small>Head of Global CRM, Kelvion Holding GmbH</small></footer></figure>
+      <figure class="stimme"><p class="platz">Platz für das Originalzitat von der bestehenden Seite.</p><footer><b>Lena Wisser</b><small>VP Customer Experience, Parloa GmbH</small></footer></figure>
+    </div>
+  </div>
+</section>
+
+<section class="branchen" id="branchen">
+  <div class="wrap branchen-raster">
+    <div>
+      <h2>Wir kennen Ihre Branche</h2>
+      <p class="lead" style="margin-top:16px;color:var(--grau)">Jede Branche hat eigene Abläufe und Vorschriften. Wählen Sie Ihre, um passende Lösungen und Beispiele zu sehen.</p>
+    </div>
+    <ul>
+      <li><a href="https://digitall.com/de/">Finanzdienstleister und Versicherungen <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Handel, Konsumgüter, Mode und Luxus <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Telekommunikation und Versorger <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Öffentlicher Sektor und NGOs <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Informations- und Kommunikationstechnik <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Automobil, Fertigung und Bau <span class="mono">Ansehen</span></a></li>
+      <li><a href="https://digitall.com/de/">Gesundheit, Life Science, Logistik und Transport <span class="mono">Ansehen</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faelle">
+  <div class="wrap">
+    <h2>Aus der Praxis</h2>
+    <div class="faelle-raster">
+      <a class="fall" href="https://digitall.com/de/"><span class="mono">Cyber Security</span><h3>Informationssicherheit aufbauen: Governance, Risiko und Compliance</h3><p>Wie ein Rahmenwerk für Informationssicherheit ein Unternehmen widerstandsfähiger macht.</p><em>Fall lesen</em></a>
+      <a class="fall" href="https://digitall.com/de/"><span class="mono">Pharma</span><h3>Engelhard: mehr Durchblick zwischen Forecast und Bestellung</h3><p>Was sich aus einem komplexen Forecast-to-Order-Prozess lernen lässt.</p><em>Fall lesen</em></a>
+      <a class="fall" href="https://digitall.com/de/"><span class="mono">Finanzdienstleister</span><h3>IT-Infrastruktur auf Belastbarkeit geprüft</h3><p>Ein Assessment von Infrastruktur und Virtualisierung schafft Klarheit über Schwachstellen.</p><em>Fall lesen</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <h2>Erzählen Sie uns, was Sie vorhaben</h2>
+    <p class="lead">Ein erstes Gespräch klärt, ob und wie wir helfen können.</p>
+    <div class="auswahl" id="auswahl" hidden><span class="mono">Ihre Auswahl</span><span id="auswahlText"></span></div>
+    <div class="hero-knoepfe">
+      <a class="btn btn-weiss" href="tel:+4972146476100">+49 721 46 476 100 anrufen</a>
+      <a class="btn btn-geist" href="https://digitall.com/de/">Zum Kontaktformular</a>
+    </div>
+    <div class="orte">
+      <div><span class="mono">Deutschland</span><address>Reuterweg 49<br>60323 Frankfurt am Main<br><a href="tel:+4972146476100">+49 721 46 476 100</a></address></div>
+      <div><span class="mono">Schweiz</span><address>Im Graefli 21<br>8808 Pfaeffikon<br><a href="tel:+41448744478">+41 44 87 444-78</a></address></div>
+      <div><span class="mono">Österreich</span><address>Hauptstrasse 43–45<br>7000 Eisenstadt<br><a href="tel:+4972146476100">+49 721 46 476 100</a></address></div>
+      <div><span class="mono">Bulgarien</span><address>Business Park Sofia, Geb. 15, 5. Stock<br>1766 Sofia<br><a href="tel:+35924895725">+359 2 489 57 25</a></address></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="fusszeile">
+  <div class="wrap">
+    <span>© 2026 DIGITALL</span>
+    <ul>
+      <li><a href="https://digitall.com/de/impressum">Impressum</a></li>
+      <li><a href="https://digitall.com/de/datenschutzrichtlinie">Datenschutz</a></li>
+      <li><a href="https://digitall.com/de/verwendung-von-cookies">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="hinweis">Entwurf von Y Ventures für DIGITALL. Nicht die offizielle Seite.</div>
+
+<script>
+(() => {
+  const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const schmal = () => innerWidth <= 900;
+  const klemme = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+  const weich = (v, a, b) => { const t = klemme((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+
+  /* Menü */
+  const nav = document.getElementById('hauptnav'), knopf = document.getElementById('menueKnopf');
+  const menue = offen => {
+    nav.classList.toggle('offen', offen);
+    knopf.setAttribute('aria-expanded', offen);
+    knopf.setAttribute('aria-label', offen ? 'Menü schließen' : 'Menü öffnen');
+  };
+  knopf.addEventListener('click', () => menue(!nav.classList.contains('offen')));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) menue(false); });
+
+  /* Leistungsfelder: eine Quelle für Fragen und Buch */
+  const felder = [
+    { titel: 'KI-Services und Lösungen', wahl: 'KI sinnvoll einsetzen', klein: 'Wir wissen noch nicht, wo sie uns wirklich hilft',
+      frage: 'Alle reden über KI. Wo bringt sie Ihrem Unternehmen wirklich etwas?',
+      text: 'Wir setzen KI dort ein, wo sie Arbeit abnimmt: im Kundenkontakt, im Service, in der IT-Sicherheit und bei der Auswertung Ihrer Daten.',
+      punkte: ['Kundenerlebnis und Service', 'Cyber Security', 'Daten und Auswertung'],
+      icon: '<circle cx="50" cy="50" r="14"/><path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20L67 33M33 67L20 80"/>' },
+    { titel: 'CRM und Workplace', wahl: 'Kunden gewinnen und besser betreuen', klein: 'Vertrieb, Marketing und Service arbeiten getrennt',
+      frage: 'Vertrieb, Marketing und Service arbeiten in getrennten Systemen?',
+      text: 'Wir bringen Kundendaten an einen Ort und digitalisieren Vertrieb, Marketing und Service, zum Beispiel mit Salesforce oder Microsoft Dynamics 365.',
+      punkte: ['Vertrieb', 'Marketing', 'Kundenservice'],
+      icon: '<circle cx="50" cy="30" r="14"/><path d="M18 88c0-18 14-30 32-30s32 12 32 30"/><path d="M8 50h14M78 50h14"/>' },
+    { titel: 'Data Services', wahl: 'Mit Daten bessere Entscheidungen treffen', klein: 'Unsere Zahlen liegen verstreut',
+      frage: 'Sind Ihre Daten bereit für KI?',
+      text: 'Wir ordnen Ihre Daten so, dass Sie Entscheidungen darauf stützen können, und schaffen damit die Grundlage für KI.',
+      punkte: ['Datenstrategie', 'Daten zusammenführen', 'Auswertungen, mit denen Sie arbeiten können'],
+      icon: '<ellipse cx="50" cy="22" rx="32" ry="11"/><path d="M18 22v28c0 6 14 11 32 11s32-5 32-11V22M18 50v28c0 6 14 11 32 11s32-5 32-11V50"/>' },
+    { titel: 'Cyber Security', wahl: 'Das Unternehmen vor Angriffen schützen', klein: 'Wir wollen wissen, wie sicher wir sind',
+      frage: 'Was passiert, wenn morgen jemand in Ihr Netz eindringt?',
+      text: 'Wir schützen Ihr Unternehmen mit Blick auf die beiden Dinge, um die es Angreifern geht: Ihre Daten und Ihre Mitarbeitenden.',
+      punkte: ['Informationssicherheit, Risiko und Compliance', 'Überwachung und Früherkennung', 'Schutz von Daten und Menschen'],
+      icon: '<path d="M50 8l34 12v26c0 22-14 38-34 46-20-8-34-24-34-46V20z"/><path d="M36 50l10 10 18-20"/>' },
+    { titel: 'Software Development', wahl: 'Eigene Software entwickeln lassen', klein: 'Standardsoftware passt nicht zu unseren Abläufen',
+      frage: 'Die Standardsoftware passt nicht zu Ihren Abläufen?',
+      text: 'Wenn eine Plattform von der Stange nicht reicht, entwickeln wir die Software, die genau Ihren Ablauf abbildet.',
+      punkte: ['Individuelle Entwicklung', 'Anbindung an bestehende Systeme', 'Weiterentwicklung nach dem Start'],
+      icon: '<path d="M34 28L12 50l22 22M66 28l22 22-22 22M58 14L42 86"/>' },
+    { titel: 'Cloud und Expert Services', wahl: 'IT in die Cloud bringen oder den Betrieb abgeben', klein: 'Uns fehlen Zeit oder Fachleute',
+      frage: 'Wer hält Ihre Systeme am Laufen, wenn das Projekt vorbei ist?',
+      text: 'Wir bringen Ihre Technik in die Cloud, betreiben sie und stellen Ihnen Fachleute zur Seite, wenn Ihrem Team welche fehlen.',
+      punkte: ['Cloud-Einführung', 'Laufender Betrieb', 'Fachleute auf Zeit'],
+      icon: '<path d="M28 74a18 18 0 0 1-2-36 24 24 0 0 1 46-6 20 20 0 0 1 2 42z"/><path d="M50 50v24M40 62l10-12 10 12"/>' }
+  ];
+
+  /* Einstiegsfragen */
+  const phasen = [
+    { wahl: 'Wir stehen am Anfang', klein: 'Wir brauchen erst Orientierung', name: 'Beraten', text: 'Wir beginnen mit einem Gespräch darüber, was Ihr Geschäft braucht, und zeigen Ihnen, welche Plattform dazu passt.' },
+    { wahl: 'Wir wissen, was wir wollen', klein: 'Wir suchen jemanden für die Umsetzung', name: 'Bauen', text: 'Wir steigen bei der Umsetzung ein: einführen, an Ihre Abläufe anpassen, an Ihre Systeme anbinden.' },
+    { wahl: 'Es läuft schon', klein: 'Wir brauchen Betrieb und Weiterentwicklung', name: 'Betreiben', text: 'Wir übernehmen den laufenden Betrieb und entwickeln Ihre Lösung mit Ihnen weiter.' }
+  ];
+  const plattformen = [
+    { wahl: 'Microsoft', text: 'DIGITALL ist Partner von Microsoft.' },
+    { wahl: 'Salesforce', text: 'DIGITALL ist Partner von Salesforce.' },
+    { wahl: 'ServiceNow', text: 'DIGITALL ist Partner von ServiceNow.' },
+    { wahl: 'Etwas anderes oder noch nichts', text: 'Welche Plattform zu Ihnen passt, klären wir im ersten Gespräch.' }
+  ];
+  const schritte = [
+    { frage: 'Was wollen Sie verbessern?', liste: felder, zwei: true },
+    { frage: 'Wo stehen Sie gerade?', liste: phasen },
+    { frage: 'Womit arbeiten Sie heute?', liste: plattformen, zwei: true }
+  ];
+  const buehne = document.getElementById('wahlBuehne'), stand = document.getElementById('wahlStand'), balken = document.getElementById('wahlBalken'), wZurueck = document.getElementById('wahlZurueck');
+  const antworten = [];
+  let schritt = 0, ersterLauf = true;
+  const zeigeSchritt = () => {
+    const fertig = schritt >= schritte.length;
+    stand.textContent = fertig ? 'Ihr Einstieg' : `Frage ${schritt + 1} von ${schritte.length}`;
+    balken.style.width = `${(Math.min(schritt, schritte.length) / schritte.length) * 100}%`;
+    wZurueck.hidden = schritt === 0;
+    wZurueck.textContent = fertig ? 'Neu starten' : 'Eine Frage zurück';
+    if (!fertig) {
+      const s = schritte[schritt];
+      buehne.innerHTML = `<h3 tabindex="-1">${s.frage}</h3><div class="wahl-liste${s.zwei ? ' zwei' : ''}">${s.liste.map((o, i) => `<button type="button" data-i="${i}">${o.wahl}${o.klein ? `<small>${o.klein}</small>` : ''}</button>`).join('')}</div>`;
+    } else {
+      const f = felder[antworten[0]], ph = phasen[antworten[1]], pl = plattformen[antworten[2]];
+      buehne.innerHTML = `<div class="ergebnis"><h3 tabindex="-1">Wir würden mit ${f.titel} anfangen.</h3>
+        <div class="chips"><span>${f.titel}</span><span>Phase: ${ph.name}</span><span>${pl.wahl}</span></div>
+        <p class="text">${f.text} ${ph.text} ${pl.text}</p>
+        <div class="hero-knoepfe"><a class="btn btn-schwarz" href="#kontakt">Gespräch dazu vereinbaren</a><button type="button" class="btn btn-linie" id="zumBuch">Im Leistungsbuch aufschlagen</button></div></div>`;
+      document.getElementById('auswahlText').textContent = `${f.titel}, Phase ${ph.name}, ${pl.wahl}`;
+      document.getElementById('auswahl').hidden = false;
+      document.getElementById('zumBuch').addEventListener('click', () => schlageAuf(antworten[0]));
+    }
+    if (!ersterLauf) {
+      buehne.classList.remove('wechsel'); void buehne.offsetWidth; buehne.classList.add('wechsel');
+      buehne.querySelector('h3').focus({ preventScroll: true });
+    }
+    ersterLauf = false;
+  };
+  buehne.addEventListener('click', e => {
+    const b = e.target.closest('.wahl-liste button');
+    if (!b) return;
+    antworten[schritt] = +b.dataset.i; schritt++; zeigeSchritt();
+  });
+  wZurueck.addEventListener('click', () => {
+    if (schritt >= schritte.length) { schritt = 0; antworten.length = 0; document.getElementById('auswahl').hidden = true; }
+    else schritt--;
+    zeigeSchritt();
+  });
+  zeigeSchritt();
+
+  /* Kundenband */
+  const namen = ['Continental', 'Diakonie Baden', 'Vitra', 'Semperit', 'Kelvion', 'Parloa', 'Swisscard', 'Engelhard'];
+  document.getElementById('band').innerHTML = [...namen, ...(ruhig ? [] : namen)].map(n => `<span aria-hidden="true">${n}</span>`).join('');
+
+  /* Zahlen hochzählen */
+  const fmt = new Intl.NumberFormat('de-DE');
+  if (!ruhig && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      const ziel = +e.target.dataset.ziel, t0 = performance.now();
+      const lauf = t => {
+        const p = Math.min(1, (t - t0) / 1500), w = 1 - Math.pow(1 - p, 3);
+        e.target.textContent = fmt.format(Math.round(ziel * w)) + '+';
+        if (p < 1) requestAnimationFrame(lauf);
+      };
+      requestAnimationFrame(lauf);
+    }), { threshold: .6 });
+    document.querySelectorAll('#zahlen b').forEach(z => io.observe(z));
+  }
+
+  /* Buch */
+  const tafelHTML = f => `<svg viewBox="0 0 100 100" aria-hidden="true">${f.icon}</svg><p>${f.frage}</p>`;
+  const buch = document.getElementById('buch'), sek = document.getElementById('leistungen'), n = felder.length;
+  document.getElementById('tafel0').innerHTML = tafelHTML(felder[0]);
+  const schluss = { icon: '<circle cx="50" cy="50" r="38"/><path d="M38 40a12 12 0 1 1 18 10c-4 3-6 5-6 10M50 72v2"/>', frage: 'Ein Gespräch reicht, um zu wissen, wo man anfängt.' };
+  const blaetter = felder.map((f, i) => {
+    const b = document.createElement('article');
+    b.className = 'blatt'; b.id = `feld${i}`;
+    b.innerHTML = `<div class="vorn papier">
+        <p class="frage">${f.frage}</p>
+        <h3>${f.titel}</h3>
+        <p class="text">${f.text}</p>
+        <ul>${f.punkte.map(p => `<li>${p}</li>`).join('')}</ul>
+        <div class="fuss"><a href="https://digitall.com/de/">Mehr zu ${f.titel}</a><span class="mono">${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}</span></div>
+        <div class="schatten"></div>
+      </div>
+      <div class="hinten tafel" aria-hidden="true">${tafelHTML(felder[i + 1] || schluss)}<div class="schatten"></div></div>`;
+    buch.appendChild(b);
+    return b;
+  });
+  const zurueck = document.getElementById('zurueck'), weiter = document.getElementById('weiter'), seitenzahl = document.getElementById('seitenzahl');
+  let buchStand = -1;
+  const strecke = () => sek.offsetHeight - innerHeight;
+  const fortschritt = () => klemme((-sek.getBoundingClientRect().top / strecke()) * n, 0, n);
+  const zeichneBuch = () => {
+    const p = fortschritt();
+    blaetter.forEach((b, i) => {
+      const t = klemme(p - i), w = t * t * (3 - 2 * t);
+      b.style.transform = `rotateY(${-180 * w}deg)`;
+      b.style.zIndex = t <= 0 ? n - i : t >= 1 ? i + 1 : 50;
+      const s = Math.sin(Math.PI * w) * .35;
+      b.querySelectorAll('.schatten').forEach(el => el.style.opacity = s);
+      b.querySelector('.vorn').inert = t >= .5;
+    });
+    const jetzt = Math.round(p);
+    if (jetzt !== buchStand) {
+      buchStand = jetzt;
+      seitenzahl.innerHTML = jetzt < n ? `${jetzt + 1} von ${n}<span class="lang">: ${felder[jetzt].titel}</span>` : 'Kontakt';
+      zurueck.disabled = jetzt === 0; weiter.disabled = jetzt === n;
+    }
+  };
+  function schlageAuf(i) {
+    if (ruhig) { document.getElementById(`feld${klemme(i, 0, n - 1)}`).scrollIntoView(); return; }
+    scrollTo({ top: sek.offsetTop + (klemme(i, 0, n) / n) * strecke(), behavior: 'smooth' });
+  }
+  if (!ruhig) {
+    sek.style.height = `calc(100svh + ${n * 62}svh)`;
+    zurueck.addEventListener('click', () => schlageAuf(Math.round(fortschritt()) - 1));
+    weiter.addEventListener('click', () => schlageAuf(Math.round(fortschritt()) + 1));
+    buch.tabIndex = 0;
+    buch.setAttribute('aria-label', 'Leistungen zum Blättern, Pfeiltasten links und rechts');
+    buch.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') schlageAuf(Math.round(fortschritt()) + 1);
+      if (e.key === 'ArrowLeft') schlageAuf(Math.round(fortschritt()) - 1);
+    });
+  }
+
+  /* Scroll fürs Buch */
+  let wartet = false;
+  const beiScroll = () => {
+    if (wartet) return; wartet = true;
+    requestAnimationFrame(() => { wartet = false; if (!ruhig) zeichneBuch(); });
+  };
+  addEventListener('scroll', beiScroll, { passive: true });
+  addEventListener('resize', beiScroll);
+  if (!ruhig) zeichneBuch();
+
+  /* 3D-Szene: verstreute Punkte fügen sich zu drei Ebenen (Beraten, Bauen, Betreiben) */
+  const cv = document.getElementById('szene');
+  const bahn = document.getElementById('top'), heroText = document.getElementById('heroText'), ebenen = document.getElementById('ebenen');
+  const ebenenLi = [...ebenen.querySelectorAll('li')];
+  const still = () => document.documentElement.classList.add('still');
+  const gl = ruhig ? null : cv.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: true });
+  if (!gl) { still(); return; }
+  let heroP = 0;
+  const heroStand = () => {
+    heroP = klemme(-bahn.getBoundingClientRect().top / (bahn.offsetHeight - innerHeight));
+    const raus = weich(heroP, .05, .2);
+    heroText.style.opacity = 1 - raus;
+    heroText.style.transform = `translateY(${-40 * raus}px)`;
+    heroText.inert = raus > .6;
+    const drin = weich(heroP, .2, .3);
+    ebenen.style.opacity = drin;
+    ebenen.inert = drin < .4;
+    const aktiv = heroP < .28 ? -1 : heroP < .52 ? 0 : heroP < .76 ? 1 : 2;
+    ebenenLi.forEach((li, i) => li.classList.toggle('an', i === aktiv));
+    return aktiv;
+  };
+  const VS = `
+attribute vec3 aChaos; attribute vec3 aZiel; attribute vec3 aMeta;
+uniform float uZeit,uBau,uSpreiz,uFokus,uSeite,uMass,uPx; uniform vec2 uLage; uniform vec2 uDreh;
+varying float vAlpha; varying vec3 vFarbe;
+void main(){
+  float saat=aMeta.x, ebene=aMeta.y;
+  float abstand=.74+.3*uSpreiz;
+  vec3 t=aZiel;
+  if(ebene<2.5){ t.y=(ebene-1.)*abstand; }
+  else if(ebene>3.5){ float e=ebene-4.; t.y=(e-1.)*abstand+fract(saat*7.+uZeit*.06)*abstand; }
+  float a=clamp(uBau*1.7-saat*.7,0.,1.); a=a*a*(3.-2.*a);
+  vec3 c=aChaos+.2*vec3(sin(uZeit*.31+saat*40.),cos(uZeit*.27+saat*31.),sin(uZeit*.23+saat*17.));
+  bool staub=ebene>2.5&&ebene<3.5;
+  if(staub){ t=c; }
+  vec3 p=mix(c,t,a);
+  float cy=cos(uDreh.x),sy=sin(uDreh.x),cx=cos(uDreh.y),sx=sin(uDreh.y);
+  vec3 q=vec3(p.x*cy-p.z*sy,p.y,p.x*sy+p.z*cy);
+  q=vec3(q.x,q.y*cx-q.z*sx,q.y*sx+q.z*cx);
+  float f=min(2.4,4.4/max(.6,4.4+q.z));
+  gl_Position=vec4(q.x*f*uMass/uSeite+uLage.x,q.y*f*uMass+uLage.y,0.,1.);
+  gl_PointSize=max(1.5,uPx*aMeta.z*f*uMass*5.2);
+  float betont=1.;
+  if(uFokus>-.5){ if(ebene<2.5){ betont=abs(ebene-uFokus)<.5?1.9:.34; } else if(ebene>3.5){ betont=.3; } }
+  float tiefe=clamp(f*1.05-.42,.12,1.3);
+  float welle=1.+1.6*exp(-pow((t.y-mix(-1.5,1.5,fract(uZeit*.11)))*3.2,2.))*a*(staub?0.:1.);
+  vAlpha=(staub?.3:.8)*betont*tiefe*welle*mix(.5,1.,a);
+  vec3 blau=vec3(.17,.20,1.),hell=vec3(.39,.78,.95),weiss=vec3(.93,.95,1.),violett=vec3(.72,.25,1.);
+  vFarbe=mix(blau,hell,fract(saat*13.));
+  if(fract(saat*53.)>.7){ vFarbe=mix(violett,blau,fract(saat*17.)*.5); }
+  if(fract(saat*29.)>.8){ vFarbe=weiss; }
+  if(ebene>3.5){ vFarbe=mix(hell,weiss,.4); }
+  if(uFokus>-.5&&ebene<2.5&&abs(ebene-uFokus)<.5){ vFarbe=mix(vFarbe,weiss,.45); }
+}`;
+  const FS = `
+precision mediump float; varying float vAlpha; varying vec3 vFarbe;
+void main(){ float d=length(gl_PointCoord-.5); float s=smoothstep(.5,.05,d); gl_FragColor=vec4(vFarbe*vAlpha*s,vAlpha*s); }`;
+  const bau = (typ, src) => { const s = gl.createShader(typ); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+  const prog = gl.createProgram();
+  gl.attachShader(prog, bau(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, bau(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { still(); return; }
+  gl.useProgram(prog);
+  const N = schmal() ? 14000 : 30000, daten = new Float32Array(N * 9);
+  let saatZ = 7;
+  const zf = () => { saatZ = (saatZ * 16807) % 2147483647; return saatZ / 2147483647; };
+  const ecken = [[-1, -1], [1, -1], [1, 1], [-1, 1], [0, 0], [0, -1], [1, 0], [0, 1], [-1, 0]];
+  for (let i = 0; i < N; i++) {
+    const o = i * 9, saat = zf(), r = zf();
+    const u = zf() * 2 - 1, v = zf() * 6.283, rad = 3.4 * Math.cbrt(zf()), sq = Math.sqrt(1 - u * u);
+    daten[o] = rad * sq * Math.cos(v); daten[o + 1] = rad * u * .8; daten[o + 2] = rad * sq * Math.sin(v);
+    let x = 0, z = 0, ebene = 3, gr = .45 + zf() * .7;
+    if (r < .14) { ebene = 3; }
+    else if (r < .27) {
+      const e = zf() < .5 ? 0 : 1, rr = 1.3 - (e + 1) * .25, k = ecken[Math.floor(zf() * ecken.length)];
+      x = k[0] * rr + (zf() - .5) * .012; z = k[1] * rr + (zf() - .5) * .012; ebene = 4 + e; gr = .5 + zf() * .9;
+    } else {
+      const w = zf(), e = w < .42 ? 0 : w < .75 ? 1 : 2, rr = 1.3 - e * .25, G = 8;
+      if (zf() < .72) {
+        const k = -rr + (2 * rr * Math.floor(zf() * (G + 1))) / G, l = (zf() * 2 - 1) * rr;
+        if (zf() < .5) { x = k; z = l; } else { x = l; z = k; }
+        gr = .5 + zf() * .75;
+      } else { x = (zf() * 2 - 1) * rr; z = (zf() * 2 - 1) * rr; gr = .3 + zf() * .4; }
+      ebene = e;
+    }
+    daten[o + 3] = x; daten[o + 4] = 0; daten[o + 5] = z;
+    daten[o + 6] = saat; daten[o + 7] = ebene; daten[o + 8] = gr;
+  }
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, daten, gl.STATIC_DRAW);
+  [['aChaos', 0], ['aZiel', 12], ['aMeta', 24]].forEach(([name, off]) => {
+    const loc = gl.getAttribLocation(prog, name);
+    gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 36, off);
+  });
+  const U = {}; ['uZeit', 'uBau', 'uSpreiz', 'uFokus', 'uSeite', 'uMass', 'uPx', 'uLage', 'uDreh'].forEach(k => U[k] = gl.getUniformLocation(prog, k));
+  gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.clearColor(0, 0, 0, 0);
+  let W = 1, H = 1, dpr = 1, mx = 0, my = 0, zx = 0, zy = 0, sichtbar = true, t0 = 0, spreiz = 0, lx = .42, ly = 0, mass = .5;
+  const groesse = () => {
+    dpr = Math.min(schmal() ? 1.5 : 2, devicePixelRatio || 1);
+    W = cv.clientWidth || 1; H = cv.clientHeight || 1;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    gl.viewport(0, 0, cv.width, cv.height);
+  };
+  const bild = t => {
+    if (!t0) t0 = t;
+    const zeit = (t - t0) / 1000;
+    const aktiv = heroStand();
+    zx += (mx - zx) * .04; zy += (my - zy) * .04;
+    const zielSpreiz = weich(heroP, .16, .36);
+    spreiz += (zielSpreiz - spreiz) * .08;
+    const eng = schmal();
+    const hoch = Math.min(1, (W / H) * 1.15);
+    const zLx = eng ? 0 : .48 - .08 * zielSpreiz, zLy = eng ? -.6 + .14 * zielSpreiz : -.02;
+    const zMass = (eng ? .42 : .41) * hoch * (1 - .06 * zielSpreiz);
+    lx += (zLx - lx) * .08; ly += (zLy - ly) * .08; mass += (zMass - mass) * .08;
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(U.uZeit, zeit);
+    gl.uniform1f(U.uBau, klemme(zeit / 3.2));
+    gl.uniform1f(U.uSpreiz, spreiz);
+    gl.uniform1f(U.uFokus, aktiv);
+    gl.uniform1f(U.uSeite, W / H);
+    gl.uniform1f(U.uMass, mass);
+    gl.uniform1f(U.uPx, dpr);
+    gl.uniform2f(U.uLage, lx, ly);
+    gl.uniform2f(U.uDreh, zeit * .09 + zx * .7 + heroP * 2.6, -.42 + zy * .22);
+    gl.drawArrays(gl.POINTS, 0, N);
+    if (sichtbar) requestAnimationFrame(bild);
+  };
+  groesse();
+  new ResizeObserver(groesse).observe(cv);
+  new IntersectionObserver(es => {
+    const war = sichtbar; sichtbar = es[0].isIntersecting;
+    if (sichtbar && !war) requestAnimationFrame(bild);
+  }).observe(bahn);
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  requestAnimationFrame(bild);
+})();
+</script>
+</body>
+</html>
