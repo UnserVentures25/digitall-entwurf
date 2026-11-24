@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DIGITALL: IT-Lösungen für den Mittelstand">
+<meta property="og:description" content="Microsoft, Salesforce, ServiceNow und individuelle Software. Beraten, gebaut und betrieben von einem Partner.">
 <title>DIGITALL: IT-Lösungen für den Mittelstand (Entwurf Startseite)</title>
 <meta name="description" content="Entwurf einer neuen Startseite für DIGITALL. Erstellt von Y Ventures, nicht die offizielle Seite.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Crect width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%23000%27/%3E%3Cg fill=%27none%27 stroke=%27%23fff%27 stroke-width=%272%27%3E%3Ccircle cx=%279%27 cy=%279%27 r=%274%27/%3E%3Ccircle cx=%2717%27 cy=%279%27 r=%274%27/%3E%3Ccircle cx=%279%27 cy=%2717%27 r=%274%27/%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%274%27/%3E%3C/g%3E%3C/svg%3E">
@@ -45,6 +48,7 @@ section[id],span[id]{scroll-margin-top:var(--nav)}
 .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--rand)}
 .skip{position:absolute;left:-9999px;top:8px;background:var(--weiss);color:var(--tinte);padding:10px 16px;border-radius:999px;z-index:300}
 .skip:focus{left:8px}
+.nur-vorlesen{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 section:not(.kunden):not(.kontakt) h2{color:var(--tinte)}
 h2{font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.06;letter-spacing:-.03em;font-weight:500;text-wrap:balance}
 h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
@@ -78,12 +82,12 @@ h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
 .hero-bahn{position:relative;height:340svh;background:#02020c}
 .hero{position:sticky;top:0;height:100svh;overflow:hidden;color:var(--porzellan);background:radial-gradient(60% 55% at 74% 44%,rgba(29,31,196,.55),transparent 70%),radial-gradient(45% 45% at 96% 88%,rgba(160,75,255,.28),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(100,198,242,.12),transparent 70%),#02020c}
 #szene{position:absolute;inset:0;width:100%;height:100%}
-.hero-innen{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:var(--nav);padding-bottom:84px}
-.hero-text{max-width:min(660px,56%);will-change:opacity,transform}
-.hero h1{font-size:clamp(2.3rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:500;text-wrap:balance;color:var(--weiss)}
+.hero-innen{position:relative;height:100%;display:flex;flex-direction:column;padding-top:calc(var(--nav) + 28px);padding-bottom:116px}
+.hero-text{max-width:min(660px,56%);margin-block:auto;will-change:opacity,transform}
+.hero h1{font-size:clamp(2.1rem,min(5vw,8.2svh),4.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:500;text-wrap:balance;color:var(--weiss)}
 .hero h1 span{display:block;color:var(--hell)}
-.hero .lead{margin-top:24px;color:#b4b9c2;max-width:50ch}
-.hero-knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .lead{margin-top:clamp(14px,2.6svh,24px);color:#b4b9c2;max-width:50ch}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,3.4svh,32px)}
 .ebenen{position:absolute;left:max(var(--rand),calc((100vw - var(--max))/2 + var(--rand)));top:50%;width:min(440px,44%);transform:translateY(-50%);opacity:0;will-change:opacity}
 .ebenen>p{color:var(--stahl);margin-bottom:22px}
 .ebenen li{display:grid;grid-template-columns:44px 1fr;gap:4px 8px;padding:20px 0;border-top:1px solid var(--haar);opacity:.32;transition:opacity .45s}
@@ -217,6 +221,16 @@ h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
 .fusszeile ul{display:flex;flex-wrap:wrap;gap:8px 22px}
 .hinweis{position:fixed;left:0;right:0;bottom:0;z-index:150;height:28px;display:grid;place-items:center;background:rgba(18,18,20,.86);color:#cfcfd2;border-top:1px solid rgba(255,255,255,.14);font-size:.74rem;line-height:1;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 
+@media (min-width:901px){
+  .hero-text{font-size:clamp(12.5px,2.05svh,19px);max-width:min(760px,64%)}
+  .hero h1{font-size:min(4.6vw,3.6em)}
+  .hero .lead{font-size:1.12em;margin-top:1.1em}
+  .hero-knoepfe{margin-top:1.7em;gap:.7em}
+  .hero-knoepfe .btn{font-size:.98em;min-height:3.1em;padding:0 1.5em}
+}
+@media (min-width:901px) and (max-width:1100px){
+  .hero-text{max-width:74%}
+}
 @media (max-width:900px){
   :root{--nav:76px}
   .kopf{top:10px;padding-inline:10px}
@@ -227,8 +241,8 @@ h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
   .kopf nav a{padding:14px 16px;font-size:1.05rem}
   .menue-knopf{display:block}
   .kopf .btn{display:none}
-  .hero-innen{justify-content:flex-start;padding-top:calc(var(--nav) + 18px)}
-  .hero-text{max-width:none}
+  .hero-innen{padding-top:calc(var(--nav) + 22px)}
+  .hero-text{max-width:none;margin-block:0}
   .hero .lead{margin-top:16px}
   .hero-knoepfe{margin-top:22px}
   .hero-knoepfe .btn{flex:1 1 100%}
@@ -390,7 +404,8 @@ h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
     <h2>Unternehmen, die mit DIGITALL arbeiten</h2>
     <p class="lead">Vom Industriekonzern bis zum Wohlfahrtsverband.</p>
   </div>
-  <div class="band" id="band" aria-label="Kunden: Continental, Diakonie Baden, Vitra, Semperit, Kelvion, Parloa, Swisscard, Engelhard"></div>
+  <p class="nur-vorlesen">Kunden: Continental, Diakonie Baden, Vitra, Semperit, Kelvion, Parloa, Swisscard, Engelhard</p>
+  <div class="band" id="band"></div>
   <div class="wrap">
     <div class="stimmen">
       <figure class="stimme"><p class="platz">Platz für das Originalzitat von der bestehenden Seite.</p><footer><b>Christoph Zinkel</b><small>Group Head of Commercial Excellence, Semperit AG</small></footer></figure>
@@ -639,7 +654,7 @@ h3{font-size:1.25rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
     sek.style.height = `calc(100svh + ${n * 62}svh)`;
     zurueck.addEventListener('click', () => schlageAuf(Math.round(fortschritt()) - 1));
     weiter.addEventListener('click', () => schlageAuf(Math.round(fortschritt()) + 1));
-    buch.tabIndex = 0;
+    buch.tabIndex = 0; buch.setAttribute('role', 'group');
     buch.setAttribute('aria-label', 'Leistungen zum Blättern, Pfeiltasten links und rechts');
     buch.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight') schlageAuf(Math.round(fortschritt()) + 1);
